@@ -1,0 +1,110 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  """ID of the Product"""
+  id: Int!
+
+  """Name of the Product"""
+  name: String!
+
+  """Price of the Product"""
+  price: Float!
+}
+
+type User {
+  """ID of the User"""
+  id: Int!
+
+  """Name of the User"""
+  name: String!
+
+  """Email Address of the User"""
+  email: String!
+
+  """Age of the User"""
+  age: Float!
+  orders: [Product!]!
+}
+
+input ProductInput {
+  """ID of the Product"""
+  id: Int!
+
+  """Name of the Product"""
+  name: String!
+
+  """Price of the Product"""
+  price: Float!
+}
+
+type Query {
+  products: [Product!]!
+  product(id: Int!): Product!
+  users: [User!]!
+  user(id: Int!): User!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: Int!): Product!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  addOrder(addOrderInput: AddOrderInput!): User!
+  removeOrder(removeOrderInput: AddOrderInput!): User!
+}
+
+input CreateProductInput {
+  """Name of the Product"""
+  name: String!
+
+  """Price of the Product"""
+  price: Float!
+}
+
+input UpdateProductInput {
+  """Name of the Product"""
+  name: String
+
+  """Price of the Product"""
+  price: Float
+
+  """ID of the Product"""
+  id: Int!
+}
+
+input CreateUserInput {
+  """Name of the User"""
+  name: String!
+
+  """Email Address of the User"""
+  email: String!
+
+  """Age of the User"""
+  age: Int!
+}
+
+input UpdateUserInput {
+  """Name of the User"""
+  name: String
+
+  """Email Address of the User"""
+  email: String
+
+  """Age of the User"""
+  age: Int
+
+  """ID of the User"""
+  id: Int!
+}
+
+input AddOrderInput {
+  """Id of the User"""
+  userId: Int!
+
+  """Id of the Product"""
+  productId: Int!
+}
